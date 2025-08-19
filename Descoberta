@@ -1,0 +1,44 @@
+package Atividade;
+
+import java.util.Scanner;
+
+public class Descoberta {
+	
+    public void inicia () {
+    	
+    	Scanner scanner = new Scanner (System.in);
+    	
+    	Metodos m = new Metodos ();
+    	Dicas dicas = new Dicas ();
+    	boolean continua = true;
+    	
+    	while (continua == true ) {
+        System.err.println("Bem-vindo ao Jogo da Descobeta");
+
+        System.out.println("Com quantas palavras você deseja jogar? (1 ou 2)");
+        int tipo = scanner.nextInt();
+        
+        
+        for (int cont = 0; cont <tipo; cont++) {
+        	
+        	 String palavraSelecionada = m.selecionarPalavra();
+             String palavraEmbaralhada = m.embaralharPalavras(palavraSelecionada);
+
+             System.out.println("Qual a palavra " + palavraEmbaralhada + "?");
+             
+          
+             dicas.tentativas(palavraSelecionada);
+           
+        }
+        
+        System.out.println("Obrigada por Jogar!");
+        System.out.println("Deseja jogar novamente? 1 para 'sim' e 0 para 'nao' ");
+        int escolha = scanner.nextInt();
+        if (escolha == 1 ){ {continua=true;}
+        }
+        else {
+        	continua = false;
+        }
+    }
+    }
+    }
