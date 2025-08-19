@@ -1,0 +1,53 @@
+package Atividade;
+
+import java.util.Scanner;
+
+public class CacaPalavras {
+	
+    public void inicia() {
+
+        Scanner scanner = new Scanner(System.in);
+        Metodos metodo = new Metodos();
+        Dicas tenta = new Dicas();
+
+        
+        boolean continua = true;
+    	
+    	while (continua == true ) {
+        System.out.println("Com quantas palavras você deseja jogar? (1 ou 2)");
+        int tipo = scanner.nextInt();
+       
+
+        String[] armazena = new String[tipo]; // armazena no indice 0 e 1 as palavras 1 e 2
+
+        metodo.preencheTabuleiro();
+
+        
+        // coloco no tabuleiro a quantidade de palavras 1 ou 2
+        
+        for (int cont = 0; cont < tipo; cont++) {
+        	
+            armazena[cont] = metodo.selecionarPalavra();
+            metodo.colocaPalavra(armazena[cont]);
+        }
+
+        metodo.imprimirTabuleiro();
+
+        
+        // aqui, eu permito que o usuário tente acertar todas as palavras 
+        for (int i = 0; i < tipo; i++) {
+            tenta.tentativas(armazena[i]);
+        }
+
+        System.out.println("Obrigada por Jogar!");
+        System.out.println("Deseja jogar novamente? 1 para 'sim' e 0 para 'nao' ");
+        int escolha = scanner.nextInt();
+        if (escolha == 1 ){ {continua=true;}
+        }
+        else {
+        	continua = false;
+        	System.out.println("FIM DE JOGO");
+        }
+    }
+}
+}
